@@ -1,33 +1,32 @@
-# .gitignore for Grails 1.2 and 1.3
-# Although this should work for most versions of grails, it is
-# suggested that you use the "grails integrate-with --git" command
-# to generate your .gitignore file.
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
 
-# web application files
-/web-app/WEB-INF/classes
+*.iml
 
-# default HSQL database files for production mode
-/prodDb.*
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the following:
 
-# general HSQL database files
-*Db.properties
-*Db.script
+# User-specific stuff:
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
 
-# logs
-/stacktrace.log
-/test/reports
-/logs
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
 
-# project release file
-/*.war
+# Gradle:
+# .idea/gradle.xml
+# .idea/libraries
 
-# plugin release files
-/*.zip
-/plugin.xml
+## File-based project format:
+*.ipr
+*.iws
 
-# older plugin install locations
-/plugins
-/web-app/plugins
+## Plugin-specific files:
 
-# "temporary" build files
-/target
+# IntelliJ
+/out/
