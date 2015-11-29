@@ -1,4 +1,4 @@
-package metrics.collector.ui
+package com.nikodc.metricscollector
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

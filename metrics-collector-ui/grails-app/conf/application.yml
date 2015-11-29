@@ -2,7 +2,7 @@
 grails:
     profile: web
     codegen:
-        defaultPackage: metrics.collector.ui
+        defaultPackage: com.nikodc.metricscollector
 info:
     app:
         name: '@info.app.name@'
