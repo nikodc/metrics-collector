@@ -12,12 +12,12 @@ class BootStrap {
 
         environments {
             development {
-                def collector = new JmxMetricCollector(name:'HeapMemoryUsage',
+                def collector = new JmxMetricCollector(name:'heapMemoryUsage @ localhost',
                         serviceUrl:'service:jmx:rmi://localhost/jndi/rmi://localhost:9090/jmxrmi',
                         objectName:'java.lang:type=Memory', attribute: 'HeapMemoryUsage.used').save()
-                def publisher = new InfluxDBMetricPublisher(name:'heapMemoryUsage',
+                def publisher = new InfluxDBMetricPublisher(name:'heapMemoryUsage @ localhost',
                         connectionUrl:'http://localhost:8086', database:'jvmstats',
-                        tagName:'server', tagValue:'localhost',
+                        measurement: 'heapMemoryUsage', tagName:'server', tagValue:'localhost',
                         user:'admin', password:'admin').save()
                 new Route(collector:collector, publisher:publisher).save()
             }

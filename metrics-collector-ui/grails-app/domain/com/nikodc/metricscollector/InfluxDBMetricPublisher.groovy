@@ -11,6 +11,7 @@ class InfluxDBMetricPublisher extends MetricPublisher {
 
     String connectionUrl
     String database
+    String measurement
     String tagName
     String tagValue
     String user
@@ -19,6 +20,7 @@ class InfluxDBMetricPublisher extends MetricPublisher {
     static constraints = {
         connectionUrl nullable: false, blank: false
         database nullable: false, blank: false
+        measurement nullable: false, blank: false
         tagName nullable: true
         tagValue nullable: false
         user nullable: true
@@ -31,7 +33,7 @@ class InfluxDBMetricPublisher extends MetricPublisher {
     }
 
     private InfluxDBService.Measurement measurement(Object value) {
-        new InfluxDBService.Measurement(name: name, tags: [(tagName):tagValue], fields: [value:value])
+        new InfluxDBService.Measurement(name: measurement, tags: [(tagName):tagValue], fields: [value:value])
     }
 
     private InfluxDBService.Config config() {
