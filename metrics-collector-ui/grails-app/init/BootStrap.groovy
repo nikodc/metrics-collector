@@ -1,6 +1,12 @@
 import com.nikodc.metricscollector.*
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class BootStrap {
+
+    static Logger logger = LoggerFactory.getLogger('com.nikodc.metricscollector')
+
+    def grailsApplication
 
     def init = { servletContext ->
 
@@ -16,6 +22,14 @@ class BootStrap {
                 new Route(collector:collector, publisher:publisher).save()
             }
         }
+
+        if (grailsApplication.config.metricscollector.engine.trigger) {
+            logger.info("Initializing EngineExecutionJob with cron " +
+                    "trigger: once every ${grailsApplication.config.metricscollector.engine.trigger} ms")
+            EngineExecutionJob.schedule(Long.valueOf(grailsApplication.config.metricscollector.engine.trigger))
+            logger.info("EngineExecutionJob scheduled!")
+        }
+
     }
 
     def destroy = {
