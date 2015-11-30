@@ -4,7 +4,7 @@ import grails.util.Environment
 // See http://logback.qos.ch/manual/groovy.html for details on configuration
 appender('STDOUT', ConsoleAppender) {
     encoder(PatternLayoutEncoder) {
-        pattern = "%level %logger - %msg%n"
+        pattern = "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{32} - %msg%n"
     }
 }
 
