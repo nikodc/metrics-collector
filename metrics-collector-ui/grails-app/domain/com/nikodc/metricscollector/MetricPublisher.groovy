@@ -9,7 +9,12 @@ class MetricPublisher {
     }
 
     static constraints = {
-        name nullable: false, blank: false, maxSize: 200
+        name nullable: false, blank: false, maxSize: 200, unique: true
+    }
+
+    @Override
+    String toString() {
+        return name
     }
 
     void publish(Object value) {
