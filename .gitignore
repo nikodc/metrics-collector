@@ -32,3 +32,6 @@
 /out/
 
 .asscache
+devDb*
+testDb*
+prodDb*
