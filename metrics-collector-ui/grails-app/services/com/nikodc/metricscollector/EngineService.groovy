@@ -13,7 +13,11 @@ class EngineService {
         logger.info("Executing...")
 
         Route.list().each {
-            it.transfer()
+            try {
+                it.transfer()
+            } catch (Exception e) {
+                logger.warn("Exception thrown while processing route: ${it.id}", e)
+            }
         }
 
         logger.info("End!")

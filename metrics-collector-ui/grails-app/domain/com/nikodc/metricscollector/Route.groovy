@@ -11,7 +11,7 @@ class Route {
     }
 
     def transfer() {
-        def value = collector.collect()
+        def value = collector.pull()
         publisher.publish(value)
     }
 }

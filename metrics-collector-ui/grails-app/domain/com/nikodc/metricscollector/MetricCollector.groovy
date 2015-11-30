@@ -1,6 +1,6 @@
 package com.nikodc.metricscollector
 
-abstract class MetricCollector {
+class MetricCollector {
 
     String name
 
@@ -12,6 +12,9 @@ abstract class MetricCollector {
         name nullable: false, blank: false, maxSize: 200
     }
 
-    abstract Object collect()
+    Object pull() {
+        // must be implemented subclasses
+        null
+    }
 
 }

@@ -1,22 +1,26 @@
 package com.nikodc.metricscollector
 
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+
 class JmxMetricCollector extends MetricCollector {
 
-    String host
-    int port
+    static Logger logger = LoggerFactory.getLogger(JmxMetricCollector)
+
+    def jmxService
+
+    String serviceUrl
     String objectName
     String attribute
 
     static constraints = {
-        host nullable: false, blank: false
-        port nullable: false, min: 0
+        serviceUrl nullable: false, blank: false
         objectName nullable: false, blank: false
         attribute nullable: false, blank: false
     }
 
     @Override
-    Object collect() {
-        // TODO to be implemented!
-        return 1
+    Object pull() {
+        jmxService.getAttributeValue(serviceUrl, objectName, attribute)
     }
 }

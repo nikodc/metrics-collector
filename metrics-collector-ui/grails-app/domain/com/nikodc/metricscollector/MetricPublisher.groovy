@@ -1,6 +1,6 @@
 package com.nikodc.metricscollector
 
-abstract class MetricPublisher {
+class MetricPublisher {
 
     String name
 
@@ -12,5 +12,7 @@ abstract class MetricPublisher {
         name nullable: false, blank: false, maxSize: 200
     }
 
-    abstract void publish(Object value);
+    void publish(Object value) {
+        // must be implemented subclasses
+    }
 }
